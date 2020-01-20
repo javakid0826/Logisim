@@ -1,0 +1,216 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<title>Logisim: Release history</title>
+	<link rel="shortcut icon" href="http://www.cburch.com/logisim/logisim.ico">
+</head>
+
+<body>
+	<script src="JS/navbar.js"></script>
+
+	<h1>Logisim release history</h1>
+
+	<div id="history">
+		<div>
+			<h2>Version 2.7.1 (March 21, 2011)</h2>
+			<ul>
+				<li>
+					Feature: When errors are in a file being loaded, the file is still partially loaded and displayed. If multiple errors are found, each is displayed.
+				</li>
+				<li>
+					Feature: In Plexers library, added Select Location attribute to multiplexer, demultiplexer, and decoder.
+				</li>
+				<li>
+					Feature: If some components somehow manage to get "off the grid," they are relocated back onto the grid once they are moved.
+				</li>
+				<li>
+					Behavior change: With transistors and transmission gates, a floating value is passed through as floating regardless of the value of gate (including a floating or error gate value).
+				</li>
+				<li>
+					Behavior change: When clicking the currently viewed circuit, the circuit attributes are shown but no tool to add that circuit to itself is selected. This also happens with triple-clicking a circuit: The view is switched to the circuit, but the tool is not selected for adding instances to itself.
+				</li>
+				<li>
+					Bug fix: The combinational analysis "Product of Sums" option did not work when any variable other than the last one was to appear negated in any of the sums.
+				</li>
+				<li>
+					Bug fix: In the main editor window, when "Close" was selected from the Window menu, a dialog box popped up giving the Save/Discard/Cancel; but if Cancel was selected, the window was still closed (but without saving).
+				</li>
+				<li>
+					Bug fix: When "Reset Simulation" was selected while simulation was enabled, the reset values were not propagated through the circuit immediately.
+				</li>
+				<li>
+					Bug fix: Several types of exceptions could occur during simulation, particularly when poking the simulation while the simulation is busy. Many of these have been removed.
+				</li>
+				<li>
+					Bug fix: You could copy components from one project and paste them into another, even though the other project's libraries may not support the components being pasted.
+				</li>
+				<li>
+					Bug fix: Through starting to edit an attribute with a drop-down menu and then switching to view attributes for something else, the newly viewed attributes would actually change to the value of the previous edit.
+				</li>
+				<li>
+					Bug fix: When editing a circuit's appearances, labels would be given a color based on the fill color for rectangles/ovals/polygons rather than the color selected for text. This color was by default white, and so they appeared invisible.
+				</li>
+				<li>
+					Bug fix: When editing a circuit's appearance, changing between Border, Fill, Border &amp; Fill didn't update attribute list (whether viewing attributes for a tool or for the current selection).
+				</li>
+				<li>
+					Bug fix: When editing a circuit's appearance and copying to the clipboard, the anchor's location and facing are stored to the clipboard if the selection includes the anchor.
+				</li>
+				<li>
+					Bug fix: In rare cases, loading files would show an error reading "Resetting to invalid mark." (This seems to have involved a non-ASCII character in exactly the wrong position.)
+				</li>
+				<li>
+					Bug fix: The Windows executable's application description was changed so "Open with" context menu gives proper application name.
+				</li>
+			</ul>
+		</div>
+		<div>
+			<h2>Version 2.7.0 (March 7, 2011)</h2>
+			<ul>
+				<li>
+					<h3>GUI</h3>
+					<ul>
+						<li>
+							Feature: Added the option of switching the "explorer pane" between viewing the "toolbox" (the project's circuits and libraries that has appeared in the explorer pane in previous versions) and a simulation hierarchy.
+						</li>
+						<li>
+							Feature: A Greek translation of the GUI elements was added. (The documentation is not yet translated.)
+						</li>
+						<li>
+							Feature: The attribute table contains a header line describing which attributes are being edited.
+						</li>
+						<li>
+							Feature: Added a "Close" item to the Window menu, which closes the current window. The "Close" item in the File menu continues to close the current project; its shortcut is now Control-Shift-W.
+						</li>
+						<li>
+							Feature: Added 250%, 300%, 400% to the options for zooming.
+						</li>
+						<li>
+							Feature: File dialogs "remember" the location of the last-accessed file, and the next file dialog starts from there - even when Logisim is started again.
+						</li>
+						<li>
+							Feature: During a rectangular selection, the rectangle is drawn with a light blue, and components that will be affected are indicated with a slate-blue outline.
+						</li>
+						<li>
+							Design change: Removed option to disable the project toolbar.
+						</li>
+						<li>
+							Bug fix: In moving a component whose output is connected to itself, it was possible for an exception to cause the program to hang.
+						</li>
+						<li>
+							Bug fix: The "Second radix when wire poked" preference was ignored - the "First radix" was displayed twice when the wire was poked.
+						</li>
+						<li>
+							Bug fix: Enabled the "-clearprops" command-line option for clearing all application preferences. (The previous version worked with "-clearprefs", but it was described as "-clearprops" in the "-help" text and in the documentation. Both now work.)
+						</li>
+						<li>
+							Bug fix: The Logging module's window title did not change when the file's name was changed.
+						</li>
+					</ul>
+				</li>
+				<li>
+					<h3>Core</h3>
+					<ul>
+						<li>
+							Feature: Saving project files is more cautious, creating a backup before starting to write to disk and recovering from the backup if for some reason the save is detected to fail (whether nothing has been written to the file or an error has occurred while saving).
+						</li>
+						<li>
+							Feature: Individual subcircuit instances can have a label, in addition to the "shared label" that is displayed in the center of each instance of a subcircuit.
+						</li>
+						<li>
+							Bug fix: When simulation is disabled, selecting Tick Once will still cause a tick once the simulation is stepped.
+						</li>
+					</ul>
+				</li>
+				<li>
+					<h3>Libraries</h3>
+					<ul>
+						<li>
+							Feature: Added a Wiring library containing transistor, transmission gate, power and ground components. Also, the splitter, pin, probe, tunnel, clock, pull resistor, and bit extender were moved into the Wiring library from the Base library, and constant was moved into the Wiring library from the Gates library.
+						</li>
+						<li>
+							Feature: In the Wiring library, splitters can be configured to show which bits correspond to each end using the new Appearance attribute. It uses this new appearance by default.
+						</li>
+						<li>
+							Feature: In the Wiring library, the pop-up menu associated with splitters includes menu items for distributing the bits in ascending or descending order.
+						</li>
+						<li>
+							Feature: In the Gates library, the gates (except Controlled Buffer and Controlled Inverter) have a new Output Value attribute so that a gate can output a floating value when the result is true or when the result is false. This is useful for building a wired-or and wired-and connections.
+						</li>
+						<li>
+							Feature: In the Plexers library, an enable input was added to the multiplexer, demultiplexer, and decoder.
+						</li>
+						<li>
+							Feature: In the Plexers library, the priority encoder received a new Disabled Output attribute.
+						</li>
+						<li>
+							Feature: In the I/O library, the LED Matrix's Input Format attribute can be changed after the matrix is added into the circuit.
+						</li>
+						<li>
+							Design change: Deleted the "Legacy" library for loading files saved in versions 1.x of Logisim.
+						</li>
+						<li>
+							Design change: For the Memory library's Random component, a reset when the seed is 0 computes a new initial seed based on the current time. (It previously reset to the initial seed for the current simulation.)
+						</li>
+						<li>
+							Design change: All components except Constant now use the included GIF icons rather than Java code.
+						</li>
+						<li>
+							Bug fix: In the Wiring library, changing the label for a Tunnel would not immediately affect the values propagated through the circuit.
+						</li>
+						<li>
+							Bug fix: In the Wiring library, Pull Resistors did not respect "printer view," which is meant to be black and white.
+						</li>
+					</ul>
+				</li>
+				<li>
+					<h3>Combinational Analysis</h3>
+					<ul>
+						<li>
+							Feature: In the Combinational Analysis module, the user can select between using a sum of products or a product of sums.
+						</li>
+						<li>
+							Feature: The Combinational Analysis module supports apostrophes (as in "x'" for NOT x).
+						</li>
+						<li>
+							Design change: The Combinational Analysis module's expression pane uses a larger font size than previously.
+						</li>
+						<li>
+							Bug fix: Some run-time exceptions that would occur upon doing "Analyze Circuit" a second time were removed.
+						</li>
+						<li>
+							Bug fix: In the Karnaugh maps drawn by the Combinational Analysis module, each implicant was indicated by a red rectangle, but they were meant to use varied colors.
+						</li>
+						<li>
+							Bug fix: The Combinational Analysis module's "Build Circuit" feature could create excess wire segments and even overlapping wires when a gate with an even number of inputs had several of its first half of inputs wired directly to the circuit inputs.
+						</li>
+						<li>
+							Bug fix: The "Set As Expression" button would sometimes not be disabled when pressed (particularly when the previous expression was the same except for spaces).
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div>
+			<h2>Other release information</h2>
+
+			<a href="http://www.cburch.com/logisim/history-stats.html">Release statistics</a>
+			<br />
+			<a href="http://www.cburch.com/logisim/history-2.6.html">2.5.0 to 2.6.2</a>
+			<br />
+			<a href="http://www.cburch.com/logisim/history-2.2.html">2.2.0 to 2.4.0</a>
+			<br />
+			<a href="http://www.cburch.com/logisim/history-2.1.html">2.1.0 to 2.1.8</a>
+			<br />
+			<a href="http://www.cburch.com/logisim/history-2.0.html">2.0.0 to 2.0.6</a>
+			<br />
+			<a href="http://www.cburch.com/logisim/history-2.0betas.html">2.0 Beta 1 to 2.0.0</a>
+			<br />
+			<a href="http://www.cburch.com/logisim/history-1.0.html">0.3 to 1.09c</a>
+		</div>
+	</div>
+
+	<script src="JS/copyright.js"></script>
+</body>
+</html>

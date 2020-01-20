@@ -1,0 +1,16 @@
+*:not(kbd, code, var, samp) {
+	vertical-align: top;
+	line-height: 1.5em;
+	margin: 0px;
+	padding: 0px;
+	font-family: Montserrat, Times new roman, Comic Sans MS, sans-serif;
+}
+
+a {
+	text-decoration: none;
+	color: $link-text-color;
+}
+
+.doc a {
+	font-weight: bold;
+}

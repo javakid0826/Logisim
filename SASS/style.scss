@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+@import "utils/_variables.scss";
+@import "utils/_mixins.scss";
+@import "base/_base.scss";
+@import "components/_navbar.scss";
+
+h2 {
+	margin: 0;
+}
+
+.doc {
+	display: grid;
+
+	grid-template-columns: repeat(2, 40%);
+
+	align-items: center;
+
+	justify-content: center;
+
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+}

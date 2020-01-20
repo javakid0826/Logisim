@@ -1,0 +1,56 @@
+.nav {
+	// Style everything in the main navbars
+
+	font-size: 20px;
+	display: grid;
+	width: 70%;
+	text-align: center;
+	grid-template-columns: auto;
+
+	& .text { // Style Normal Text
+		font-family: Courier New, Courier, monospace !important;
+		color: $normal-text-color; // Make the normal text the color of... normal text...
+		background-color: $normal-color; // Make the background for normal text be the color of... normal text background...
+		transition: background-color .25s ease-in-out;
+	}
+
+	& .link { // Style all of the links in the main navbar
+		text-decoration: none; // Get rid of that stupid underline
+		color: $normal-text-color; // Get rid of that stupid blue color (and the purple color after you have visited it too, so tacky)
+		background-color: $normal-color; // The links should just look like normal text so thats what we are gonna do
+
+		&:hover { // Style all of the links in the main navbar but only on hover
+			color: $link-highlight-text-color; // Why am I even commenting these?
+			background-color: $link-highlight-color; // I mean, I made the variable names super clear and descriptive for the express reason that I wouldn't have to do this
+		}
+	}
+
+	& .item { // Style all the items (Basically the top level of the menu. Dropdown buttons, home link, etc. [I don't know why I said etc. that is literally everything])
+		display: inline-block; // So that the items play nice next to each other and don't just ignore you when you try to size them (display:inline is a spoiled brat)
+		background-color: $normal-color !important; // Make the background not be just nothing
+
+		&:hover, &:focus{ // Define what happens to items when you hover over them (or focus on them because accessibility)
+			color: $menu-highlight-text-color !important; // I am just going to assume that you can read the names of the variables and stop commenting these
+			background-color: $menu-highlight-color !important; // Because if you can't read them then honestly you have bigger problems than understanding what this line of code does
+		}
+	}
+}
+
+//Multi Platform Stuff
+@media all and (min-width: 500px) {
+	.nav {
+		grid-template-columns: repeat(2, auto);
+	}
+}
+
+@media all and (min-width: 750px) {
+	.nav {
+		grid-template-columns: repeat(3, auto);
+	}
+}
+
+@media all and (min-width: 1000px) {
+	.nav {
+		grid-template-columns: repeat(4, auto);
+	}
+}
