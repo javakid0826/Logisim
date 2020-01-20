@@ -2,10 +2,12 @@
 	// Style everything in the main navbars
 
 	font-size: 20px;
-	display: grid;
 	width: 70%;
 	text-align: center;
-	grid-template-columns: auto;
+
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 
 	& .text { // Style Normal Text
 		font-family: Courier New, Courier, monospace !important;
@@ -28,6 +30,9 @@
 	& .item { // Style all the items (Basically the top level of the menu. Dropdown buttons, home link, etc. [I don't know why I said etc. that is literally everything])
 		display: inline-block; // So that the items play nice next to each other and don't just ignore you when you try to size them (display:inline is a spoiled brat)
 		background-color: $normal-color !important; // Make the background not be just nothing
+		flex-basis: 200px;
+		flex-grow: 1;
+		border: 1px solid #CCC;
 
 		&:hover, &:focus{ // Define what happens to items when you hover over them (or focus on them because accessibility)
 			color: $menu-highlight-text-color !important; // I am just going to assume that you can read the names of the variables and stop commenting these
@@ -36,21 +41,22 @@
 	}
 }
 
-//Multi Platform Stuff
-@media all and (min-width: 500px) {
-	.nav {
-		grid-template-columns: repeat(2, auto);
-	}
-}
-
-@media all and (min-width: 750px) {
-	.nav {
-		grid-template-columns: repeat(3, auto);
-	}
-}
-
-@media all and (min-width: 1000px) {
-	.nav {
-		grid-template-columns: repeat(4, auto);
-	}
-}
+//Switched from grid to flexbox making this unnecessary
+// //Multi Platform Stuff
+// @media all and (min-width: 500px) {
+// 	.nav {
+// 		grid-template-columns: repeat(2, auto);
+// 	}
+// }
+//
+// @media all and (min-width: 750px) {
+// 	.nav {
+// 		grid-template-columns: repeat(3, auto);
+// 	}
+// }
+//
+// @media all and (min-width: 1000px) {
+// 	.nav {
+// 		grid-template-columns: repeat(4, auto);
+// 	}
+// }
