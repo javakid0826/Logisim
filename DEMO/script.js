@@ -252,7 +252,7 @@ canv.addEventListener("mouseup", e => {
 	}
 
 	mouseDown = false;
-	mosueDragged = false;
+	mouseDragged = false;
 
 	currWire = null;
 	clickPos = null;
